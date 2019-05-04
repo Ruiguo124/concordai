@@ -13,7 +13,7 @@ from sklearn.naive_bayes import GaussianNB
 def sql_conn():
     connection = psycopg2.connect(user = "kyle",
                                     password = "q",
-                                    host = "127.0.0.1",
+                                    host = "192.168.43.190",
                                     port = "5432",
                                     database = "db1")
     return connection
