@@ -70,6 +70,12 @@ def kneighbor(X_train,Y_train,X_test,Y_test,nneighbors):
 def gaussian_bayes(X_train,Y_train,X_test,Y_test):
     bayes_model = GaussianNB()
 
+    bayes_model.fit(X_train,Y_train)
+
+    pred = bayes_model.predict(X_test)
+
+    print("bayes acc",accuracy_score(Y_test,pred,normalize=True))
+
 if __name__ == "__main__":
     if not os.path.isfile("labels.p") or not os.path.isfile("X_dataset.p"):
         labels = set()
@@ -184,6 +190,8 @@ if __name__ == "__main__":
             random_forest(X_train,Y_train,X_test,Y_test,nestimators=500)
         if choose is "3":
             kneighbor(X_train,Y_train,X_test,Y_test,nneighbors=4)
+        if choose is "4":
+            gaussian_bayes(X_train,Y_train,X_test,Y_test)
             
            
             
